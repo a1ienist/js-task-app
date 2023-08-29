@@ -7,6 +7,8 @@ const getAllDeals = async () => {
         );
         const deals = await response.json();
 
+        deals.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));  //price low to high
+
         deals.forEach((deal) => {
             const image = document.createElement('img'); //image
             image.setAttribute('class', 'deal-image');

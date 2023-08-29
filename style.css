@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Lacquer&display=swap');@import url('https://fonts.googleapis.com/css2?family=Diplomata&display=swap');@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lacquer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Diplomata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
 
 
 
 
-body{
+body {
     margin: 0;
-    background-color:  #F8F8FF;
+    background-color: #F8F8FF;
 }
 
-header{
+header {
     height: 70px;
     background-color: #10e7dc;
     color: black;
@@ -22,20 +24,20 @@ header{
 
 }
 
-.logo{
+.logo {
     font-size: 2.5rem;
 }
 
-.nav{
+.nav {
     display: flex;
     list-style: none;
     gap: 3rem;
 }
 
 .nav li {
- border-left: 3px solid black;
- padding: 1.2rem;
- font-size: 1.2rem;
+    border-left: 3px solid black;
+    padding: 1.2rem;
+    font-size: 1.2rem;
 }
 
 .nav li a {
@@ -43,7 +45,7 @@ header{
     color: black;
 }
 
-.deal-wrapper{
+.deal-wrapper {
     margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -58,28 +60,62 @@ header{
     width: 90%;
     height: 150px;
     margin-left: 1rem;
-    background-color: #1b9ce5;
+    background-color: #1b9be5a8;
     border-radius: 1rem;
-    padding: 0.5rem; 
+    padding: 0.5rem;
+    transition: box-shadow 0.3s;
 }
 
-.deal-image{
+.deal-content:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
 
-    margin-left: 1rem; 
+.deal-image {
+
+    margin-left: 1rem;
     width: 125px;
     height: 100px;
     border-radius: 1rem;
 }
 
 
-.deal-content h1 {    /* title */
-    flex: 1; 
+.deal-content h1 {
+    /* title */
+    flex: 1;
     font-size: 35px;
     margin-left: 2rem;
 }
 
 
-.deal-content h4 {     /* price */
+.deal-content h4 {
+    /* price */
     font-size: 35px;
-    margin-right: 2rem; 
+    margin-right: 2rem;
+}
+
+.deal-post {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4rem;
+}
+
+.deal-post input {
+    min-width: 500px;
+    width: 30%;
+    padding: 0.5rem;
+    margin-left: 2rem;
+    margin: 1rem;
+    padding-left: 1rem;
+    border-radius: 1rem;
+    transition: transform 0.3s;
+}
+
+.deal-post input:hover {
+    transform: scale(1.01);
+}
+
+.button-post{
+    
 }
