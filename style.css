@@ -79,16 +79,14 @@ header {
 }
 
 
-.deal-content h1 {
-    /* title */
+.deal-content h1 {      /* title */
     flex: 1;
     font-size: 35px;
     margin-left: 2rem;
 }
 
 
-.deal-content h4 {
-    /* price */
+.deal-content h4 {      /* price */
     font-size: 35px;
     margin-right: 2rem;
 }
@@ -116,6 +114,18 @@ header {
     transform: scale(1.01);
 }
 
-.button-post{
-    
+.button-post {
+
+    margin-top: 1rem;
+    padding: 0.6rem 5rem;
+    background-color: #10e7dc;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button-post:hover {
+    background-color: #3abdb6;
+    transform: scale(1.03);
 }

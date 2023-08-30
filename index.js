@@ -1,5 +1,30 @@
 const dealWrapper = document.getElementById('deal-wrapper');
 
+const createImage = (imageUrl) => {
+    const image = document.createElement('img');
+    image.setAttribute('class', 'deal-image');
+    image.src = imageUrl;
+    return image;
+};
+
+const createDealContentWrapper = () => {
+    const wrapper = document.createElement('div');
+    wrapper.setAttribute('class', 'deal-content');
+    return wrapper;
+};
+
+const createTitle = (text) => {
+    const title = document.createElement('h1');
+    title.innerHTML = text;
+    return title;
+};
+
+const createPrice = (amount) => {
+    const price = document.createElement('h4');
+    price.innerHTML = amount;
+    return price;
+};
+
 const getAllDeals = async () => {
     try {
         const response = await fetch(
@@ -7,25 +32,13 @@ const getAllDeals = async () => {
         );
         const deals = await response.json();
 
-        deals.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));  //price low to high
+        deals.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
 
         deals.forEach((deal) => {
-            const image = document.createElement('img'); //image
-            image.setAttribute('class', 'deal-image');
-            image.src = deal.image_url;
-
-
-            const wrapper = document.createElement('div'); //wrapper
-            wrapper.setAttribute('class', 'deal-content');
-
-
-            const title = document.createElement('h1'); //title
-            title.innerHTML = deal.title;
-
-
-            const price = document.createElement('h4'); //price
-            price.innerHTML = deal.price;
-
+            const wrapper = createDealContentWrapper();
+            const image = createImage(deal.image_url);            
+            const title = createTitle(deal.title);
+            const price = createPrice(deal.price);
 
             wrapper.appendChild(image);
             wrapper.appendChild(title);
@@ -34,7 +47,7 @@ const getAllDeals = async () => {
             dealWrapper.appendChild(wrapper);
         });
     } catch (error) {
-        console.error('Error fetching deals:', error);
+        console.error('Error during deal upload:', error);
     }
 };
 
