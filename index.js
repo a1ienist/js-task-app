@@ -32,11 +32,13 @@ const getAllDeals = async () => {
         );
         const deals = await response.json();
 
-        deals.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+        deals.sort((a, b) =>
+            parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1))
+        );
 
         deals.forEach((deal) => {
             const wrapper = createDealContentWrapper();
-            const image = createImage(deal.image_url);            
+            const image = createImage(deal.image_url);
             const title = createTitle(deal.title);
             const price = createPrice(deal.price);
 

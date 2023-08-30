@@ -6,8 +6,12 @@
 
 
 body {
+    min-width: 768px;
+    height: 100%;
+    padding: 0;
     margin: 0;
     background-color: #F8F8FF;
+
 }
 
 header {
@@ -92,20 +96,22 @@ header {
 }
 
 .deal-post {
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 4rem;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+    margin: var(--deal-margin, 2rem); /* Используем переменную для отступа */
+    padding: 2rem;
+    box-sizing: border-box;
+    transition: margin 0.3s, padding 0.3s; /* Добавляем плавные переходы для отступов */
 }
 
 .deal-post input {
-    min-width: 500px;
-    width: 30%;
-    padding: 0.5rem;
-    margin-left: 2rem;
-    margin: 1rem;
-    padding-left: 1rem;
+    width: 50%;
+
+    padding: 0.5rem 1rem;
     border-radius: 1rem;
     transition: transform 0.3s;
 }
@@ -115,9 +121,7 @@ header {
 }
 
 .button-post {
-
-    margin-top: 1rem;
-    padding: 0.6rem 5rem;
+    margin: auto;
     background-color: #10e7dc;
     border-radius: 1rem;
     border: none;
@@ -128,4 +132,21 @@ header {
 .button-post:hover {
     background-color: #3abdb6;
     transform: scale(1.03);
+}
+
+.post-message{
+    margin: auto;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+
+    .deal-post {
+        --deal-margin: 1rem; 
+        padding: 1rem; 
+    }
+    .deal-post input {
+        min-width: auto;
+    }
 }

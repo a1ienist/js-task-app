@@ -7,14 +7,42 @@ dealFormButton.addEventListener('click', async () => {
     const dealImage = document.getElementById('image_url').value;
     const dealLocation = document.getElementById('deal-location').value;
 
-    const confirmed = window.confirm("Are you sure you want to submit the data?");
+    const isValidTitle = /^[A-ZА-Я][a-zа-я]*$/.test(dealTitle);
+    const isValidLocation = /^[A-ZА-Я][a-zа-я]*$/.test(dealLocation);
+    const isValidLink = /^https?:\/\/\S+$/.test(dealImage);
+    const isValidPrice = /^\d+$/.test(dealPrice);
 
+    let errorMessage = "";
+
+    if (!isValidTitle) {
+        errorMessage += "Please use a capital letter at the beginning of the title. <br>";
+    }
+
+    if (!isValidLocation) {
+        errorMessage += "Please use a capital letter at the beginning of the location. <br>";
+    }
+
+    if (!isValidLink) {
+        errorMessage += "Please enter a valid link. <br>";
+    }
+
+    if (!isValidPrice) {
+        errorMessage += "Please enter a valid price (use digits only). <br>";
+    }
+
+    if (errorMessage) {
+        const messageWrapper = document.getElementById("post-message");
+        messageWrapper.innerHTML = errorMessage;
+        return;
+    }
+
+    const confirmed = window.confirm("Are you sure you want to submit the data?");
 
     const deal = {
         title: dealTitle,
         price: dealPrice,
         image_url: dealImage,
-        info: dealInfo,        
+        info: dealInfo,
         location: dealLocation,
     };
 
@@ -26,21 +54,19 @@ dealFormButton.addEventListener('click', async () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(deal)
-            
         });
 
         const data = await response.json();
 
         if (data) {
-            showMessage('Position was inserted');
+            alert('Position was inserted');
             if (window.confirm('Data inserted successfully. Click OK to go to another page.')) {
                 window.location.replace('./index.html');
             }
-
         }
     } catch (err) {
         console.log('err', err);
-            const messageWrapper = document.getElementById("response-message");
-            messageWrapper.innerHTML = "deal was NOT inserted, ERROR";
+        const messageWrapper = document.getElementById("post-message");
+        messageWrapper.innerHTML = "Deal was NOT inserted, ERROR";
     }
 });
