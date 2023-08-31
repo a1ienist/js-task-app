@@ -7,9 +7,10 @@ const createImage = (imageUrl) => {
     return image;
 };
 
-const createDealContentWrapper = () => {
-    const wrapper = document.createElement('div');
+const createDealContentWrapper = (deal) => {
+    const wrapper = document.createElement('a');
     wrapper.setAttribute('class', 'deal-content');
+    wrapper.href = "./deal.html?dealId=" + deal.id;
     return wrapper;
 };
 
@@ -37,7 +38,7 @@ const getAllDeals = async () => {
         );
 
         deals.forEach((deal) => {
-            const wrapper = createDealContentWrapper();
+            const wrapper = createDealContentWrapper(deal);
             const image = createImage(deal.image_url);
             const title = createTitle(deal.title);
             const price = createPrice(deal.price);

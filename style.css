@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Lacquer&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Diplomata&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
 
 
 
@@ -68,6 +65,8 @@ header {
     border-radius: 1rem;
     padding: 0.5rem;
     transition: box-shadow 0.3s;
+    text-decoration: none;
+    color: black;
 }
 
 .deal-content:hover {
@@ -102,16 +101,15 @@ header {
     justify-content: center;
     width: 100%;
     gap: 1rem;
-    margin: var(--deal-margin, 2rem); /* Используем переменную для отступа */
     padding: 2rem;
     box-sizing: border-box;
-    transition: margin 0.3s, padding 0.3s; /* Добавляем плавные переходы для отступов */
+    transition: margin 0.3s, padding 0.3s; 
 }
 
 .deal-post input {
     width: 50%;
-
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1rem; 
+    margin: 0.5rem 0; 
     border-radius: 1rem;
     transition: transform 0.3s;
 }
@@ -127,6 +125,7 @@ header {
     border: none;
     cursor: pointer;
     transition: 0.3s;
+    padding: 0.7rem 3rem; 
 }
 
 .button-post:hover {
@@ -140,13 +139,61 @@ header {
     text-align: center;
 }
 
-@media (max-width: 768px) {
+.deal-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+}
 
+.column {
+    flex: 1;
+}
+
+.deal-info {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%; 
+    height: 80vh; 
+    overflow: hidden;
+}
+
+.deal-page-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.button-delete {
+    padding: 1rem 2rem;
+    background-color: #4d5353;
+    color: white;
+    margin: auto;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0.7rem 3rem; 
+}
+
+.info-message{
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
+}
+@media (max-width: 768px) {
     .deal-post {
-        --deal-margin: 1rem; 
         padding: 1rem; 
     }
-    .deal-post input {
-        min-width: auto;
+    .deal-container {
+        flex-direction: column; 
     }
 }

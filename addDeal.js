@@ -10,7 +10,7 @@ dealFormButton.addEventListener('click', async () => {
     const isValidTitle = /^[A-ZА-Я][a-zа-я]*$/.test(dealTitle);
     const isValidLocation = /^[A-ZА-Я][a-zа-я]*$/.test(dealLocation);
     const isValidLink = /^https?:\/\/\S+$/.test(dealImage);
-    const isValidPrice = /^\d+$/.test(dealPrice);
+    const isValidPrice = /^\$\d+$/.test(dealPrice);
 
     let errorMessage = "";
 
@@ -27,7 +27,7 @@ dealFormButton.addEventListener('click', async () => {
     }
 
     if (!isValidPrice) {
-        errorMessage += "Please enter a valid price (use digits only). <br>";
+        errorMessage += "Please enter a valid price (use $ and digits only). <br>";
     }
 
     if (errorMessage) {

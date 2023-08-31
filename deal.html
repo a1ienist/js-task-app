@@ -21,18 +21,26 @@
             </ul>
         </header>
 
-        <div class="deal-container" id="deal-container"></div>
-        <div class="image-wrapper">
-            <img id="deal-image" class="deal-image"/>
-        </div>
-        <div class="deal-info">
-            <h1 id="title" class="title"></h1>
-            <h3 id="info" class="info"></h3>
-            <h4 id="location" class="location"></h4>
-            <h5 id="price" class="price"></h5>
+        <div class="deal-container">
+            <div class="column">
+                <div class="image-wrapper">
+                    <img id="deal-page-image" class="deal-page-image" alt="Deal Image" />
+                </div>
+            </div>
+            <div class="column">
+                <div class="deal-info">
+                    <h1 id="title" class="title"></h1>
+                    <h3 id="info" class="info"></h3>
+                    <h4 id="location" class="location"></h4>
+                    <h5 id="price" class="price"></h5>
 
-            <button id="button-delete" class="button-delete">Cancel deal</button>
+                    <button id="button-delete" class="button-delete">Cancel deal</button>
+                </div>
+            </div>
         </div>
+
+        <div class="info-message" id="info-message"></div>
+
     </div>
 
     <script src="./deal.js"></script>
